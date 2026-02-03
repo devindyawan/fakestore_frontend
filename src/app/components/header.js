@@ -13,22 +13,25 @@ const Basket = (props) => {
         <button
           disabled={props?.basketdata?.length === 0}
           onClick={() => props.resetQuantity()}
-          className={styles.cancel}
-        >
+          className={styles.cancel}>
           Cancel All
         </button>
         <button
           disabled={props?.basketdata?.length === 0}
-          className={styles.checkout}
-        >
+          className={styles.checkout}>
           Checkout
         </button>
       </div>
       {props?.basketdata?.length > 0
         ? props.basketdata.map((item) => (
-            <div key={item.id} className={styles.basket_item}>
+            <div
+              key={item.id}
+              className={styles.basket_item}>
               <div className={styles.basket_image}>
-                <img src={item.image} alt={item.title} />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                />
               </div>
               <div className={styles.basket_title}>{item.title}</div>
               <div className={styles.basket_totalprice}>
@@ -36,20 +39,17 @@ const Basket = (props) => {
               </div>
               <div className={styles.basket_button}>
                 <button
-                  onClick={() => props.setQuantity(item.id, item.quantity - 1)}
-                >
+                  onClick={() => props.setQuantity(item.id, item.quantity - 1)}>
                   -
                 </button>
                 {item.quantity}
                 <button
-                  onClick={() => props.setQuantity(item.id, item.quantity + 1)}
-                >
+                  onClick={() => props.setQuantity(item.id, item.quantity + 1)}>
                   +
                 </button>
                 <button
                   className={styles.basket_remove}
-                  onClick={() => props.setQuantity(item.id, 0)}
-                >
+                  onClick={() => props.setQuantity(item.id, 0)}>
                   <FaRegTrashAlt />
                 </button>
               </div>
@@ -69,10 +69,12 @@ const Header = (props) => {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
-        <FaStore /> My Fake Store
+        <FaStore /> OpenStore
       </div>
       <div className={styles.cart}>
-        <div className={styles.icon} onClick={() => setShowBasket(!showBasket)}>
+        <div
+          className={styles.icon}
+          onClick={() => setShowBasket(!showBasket)}>
           {basketData.length > 0 && (
             <div className={styles.basketcount}>{basketData.length}</div>
           )}
